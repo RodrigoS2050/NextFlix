@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Loading from "../components/Loading";
 import MovieList from "../components/MovieList";
 import { ApiData } from "../Types/ApiData";
-
+//154300
 const Home = () => {
   const [movieList, setMovieList] = useState<ApiData[]>([]);
   const [featureData, setFeatureData] = useState<any>("");
@@ -16,19 +16,19 @@ const Home = () => {
       const list = await api.getHomeList();
       setMovieList(list);
       const originals = list.filter((i) => i.slug === "originals");
-      const randomChosen = Math.floor(
+      let randomChosen = Math.floor(
         Math.random() * originals[0].items.results.length - 1
       );
       let chosen = originals[0].items.results[randomChosen];
       if (chosen.backdrop_path === null) {
-        chosen = originals[0].items.results[randomChosen];
-      } else {
-        const chosenInfo = await api.getMoveInfo(
-          `${chosen.id.toString()}`,
-          "tv"
+        randomChosen = Math.floor(
+          Math.random() * originals[0].items.results.length - 1
         );
-        setFeatureData(chosenInfo);
+        chosen = originals[0].items.results[randomChosen];
+        return chosen;
       }
+      const chosenInfo = await api.getMoveInfo(`${chosen.id.toString()}`, "tv");
+      setFeatureData(chosenInfo);
     };
     loadAll();
   }, []);
