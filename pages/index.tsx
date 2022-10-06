@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Loading from "../components/Loading";
 import MovieList from "../components/MovieList";
 import { ApiData } from "../Types/ApiData";
-//154300
+
 const Home = () => {
   const [movieList, setMovieList] = useState<ApiData[]>([]);
   const [featureData, setFeatureData] = useState<any>("");
