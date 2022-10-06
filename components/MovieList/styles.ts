@@ -48,9 +48,7 @@ export const List = styled.div`
 
 export const ListItem = styled.div`
   display: inline-block;
-  width: 150px;
   img {
-    width: 100%;
     transform: scale(0.9);
     transition: all ease 0.2s;
     &:hover {

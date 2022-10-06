@@ -3,6 +3,7 @@ import { Movie } from "../../Types/Movie";
 import * as S from "./styles";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Image from "next/image";
 
 type Props = {
   title: string;
@@ -45,9 +46,11 @@ const MovieList = ({ title, items }: Props) => {
           {items.results.length > 0 &&
             items.results.map((item, index) => (
               <S.ListItem key={index}>
-                <img
+                <Image
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.original_name}
+                  width={150}
+                  height={225}
                 />
               </S.ListItem>
             ))}
