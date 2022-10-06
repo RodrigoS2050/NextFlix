@@ -20,7 +20,7 @@ const Home = () => {
         Math.random() * originals[0].items.results.length - 1
       );
       const chosen = originals[0].items.results[randomChosen];
-      if (chosen.id !== undefined) {
+      if (chosen.id !== undefined && chosen.backdrop_path !== null) {
         const chosenInfo = await api.getMoveInfo(
           `${chosen.id.toString()}`,
           "tv"
