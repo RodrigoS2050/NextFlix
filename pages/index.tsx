@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import api from "../api";
 import FeatureMovie from "../components/FeatureMovie";
@@ -31,6 +32,10 @@ const Home = () => {
   }, []);
   return (
     <>
+      <Head>
+        <title>NextFlix</title>
+        <link rel="shortcut icon" href="/netflix.ico" />
+      </Head>
       <Header />
       {movieList.length <= 0 && <Loading />}
       {featureData && <FeatureMovie item={featureData} />}
