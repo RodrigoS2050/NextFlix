@@ -20,7 +20,12 @@ const Home = () => {
         Math.random() * originals[0].items.results.length - 1
       );
       let chosen = originals[0].items.results[randomChosen];
-      if (chosen.backdrop_path === null) {
+      while (
+        chosen.overview === "" ||
+        chosen.backdrop_path === "null" ||
+        randomChosen === -1 ||
+        chosen === undefined
+      ) {
         randomChosen = Math.floor(
           Math.random() * originals[0].items.results.length - 1
         );
