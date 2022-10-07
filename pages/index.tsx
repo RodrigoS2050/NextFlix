@@ -25,7 +25,7 @@ const Home = () => {
           Math.random() * originals[0].items.results.length - 1
         );
         chosen = originals[0].items.results[randomChosen];
-        return chosen;
+        console.log(chosen.backdrop_path);
       }
       const chosenInfo = await api.getMoveInfo(`${chosen.id.toString()}`, "tv");
       setFeatureData(chosenInfo);
